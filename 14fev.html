@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Романтическое приглашение от ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a0d2e 50%, #2d1b69 100%);
+            color: #f8e8ff;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(15, 15, 35, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            margin: 0 0 20px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ff69b4; }
+            to { text-shadow: 0 0 30px #ffd700; }
+        }
+        .poem {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin: 40px 0;
+            font-style: italic;
+            color: #e6d9ff;
+        }
+        .details {
+            background: rgba(26, 13, 46, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+        }
+        .details h2 {
+            font-size: 1.8em;
+            margin: 0 0 20px;
+            color: #ffd700;
+        }
+        .image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(255,105,180,0.3);
+        }
+        .link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+        }
+        .link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,105,180,0.6);
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 6s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="container">
+        <h1>Любимая принцесса</h1>
+        <div class="poem">
+            В She, где свет таинственный льётся рекой,<br>
+            14 февраля жду тебя со мной.<br>
+            В 13:00 любовь наша вспыхнет искрой,<br>
+            Ты — моя принцесса, навек в сердце мой!
+        </div>
+        <div class="details">
+            <h2>📍 Место встречи</h2>
+            <img src="IMG_0814.jpeg" alt="Атмосфера ресторана She" class="image">
+            <p>Стильный ресторан She — идеальное место для романтики [web:7].</p>
+            <a href="https://eda.yandex/restaurant/she_vmq4b?offline_id=yN3XZ&open_offline_tab=true" target="_blank" class="link">Перейти к ресторану и забронировать</a>
+            <br><br>
+            <strong>🗓️ Дата и время: 14 февраля, 13:00</strong>
+        </div>
+        <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;">С нетерпением жду нашей встречи! ❤️</p>
+    </div>
+    <script>
+        // Анимированные сердца
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
